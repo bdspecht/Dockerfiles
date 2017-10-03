@@ -1,0 +1,24 @@
+set laststatus=2
+set colorcolumn=80
+
+execute pathogen#infect()
+
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+filetype indent plugin on
+
+let g:airline_theme='murmur'
+
+syntax on
+set autoindent
+set tags=./tags,tags;$HOME
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
