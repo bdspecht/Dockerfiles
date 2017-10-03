@@ -30,6 +30,9 @@ RUN usermod -aG dev ben
 RUN virtualenv /home/ben/venv/
 RUN pip install awscli --upgrade
 RUN pip install pylint
+RUN mkdir /home/ben/bin
+
+ADD https://github.com/exercism/cli/releases/download/v2.4.1/exercism-linux-64bit.tgz /home/ben/bin/
 
 COPY dotfiles/bashrc /home/ben/.bashrc
 COPY dotfiles/tmux.conf /home/ben/.tmux.conf
